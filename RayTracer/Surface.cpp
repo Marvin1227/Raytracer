@@ -2,9 +2,7 @@
 #include <stdexcept>
 #include <limits>
 
-// ============================================================================
 // Sphere Implementation
-// ============================================================================
 Sphere::Sphere(const Vector3& c, double r, MaterialType mat, const Color& col)
     : Surface(mat, col), center(c), radius(r) {
 }
@@ -39,9 +37,7 @@ Vector3 Sphere::getNormal(const Vector3& point) const {
     return (point - center).normalize();
 }
 
-// ============================================================================
 // Polygon Implementation
-// ============================================================================
 Polygon::Polygon(const std::vector<Vector3>& verts, MaterialType mat, const Color& col)
     : Surface(mat, col), vertices(verts) {
     if (vertices.size() < 3) {
@@ -135,9 +131,8 @@ Vector3 Polygon::getNormal(const Vector3& point) const {
     return normal;
 }
 
-// ============================================================================
+
 // Mesh Implementation
-// ============================================================================
 Mesh::Mesh(MaterialType mat, const Color& col) : Surface(mat, col) {
 }
 
@@ -180,9 +175,7 @@ Vector3 Mesh::getNormal(const Vector3& point) const {
     return Vector3(0, 1, 0);
 }
 
-// ============================================================================
 // Quad Implementation
-// ============================================================================
 Quad::Quad(const Vector3& vertex0, const Vector3& vertex1, const Vector3& vertex2, 
            const Vector3& vertex3, MaterialType mat, const Color& col)
     : Surface(mat, col), v0(vertex0), v1(vertex1), v2(vertex2), v3(vertex3) {
